@@ -13,7 +13,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	json.NewDecoder().Decode(config)
+	json.NewDecoder(cf).Decode(config)
 
 	defaults.MustSet(config)
 }

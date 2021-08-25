@@ -9,11 +9,13 @@ import (
 
 func main() {
 	config := new(Config)
-	cf, err := os.Open("./manifest.json")
-	if err != nil {
-		panic(err)
+	{
+		cf, err := os.Open("./manifest.json")
+		if err != nil {
+			panic(err)
+		}
+		json.NewDecoder(cf).Decode(config)
+		defaults.MustSet(config)
 	}
-	json.NewDecoder(cf).Decode(config)
 
-	defaults.MustSet(config)
 }

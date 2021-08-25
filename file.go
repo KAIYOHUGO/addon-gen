@@ -23,7 +23,7 @@ func copyfolder(cfg *Config) error {
 		pc := filepath.Join(cfg.Addonpy.OutputPath, path)
 		{
 			ic, err := os.Stat(pc)
-			if err == nil && ic.IsDir() == info.IsDir() && ic.Name() == info.Name() && ic.ModTime() == ic.ModTime() {
+			if err == nil && ic.IsDir() == info.IsDir() && ic.Name() == info.Name() && ic.ModTime() == info.ModTime() {
 				return nil
 			}
 		}

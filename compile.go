@@ -21,7 +21,7 @@ func compile(cfg *Config, path string) error {
 	}
 	// run command
 	{
-		if o, err := exec.Command("transcrypt", "-p", ".none", "-n", "-od", jscache, p).Output(); err != nil {
+		if o, err := exec.Command("transcrypt", "-n", "-od", jscache, "-p .none", p).Output(); err != nil {
 			fmt.Println(string(o))
 			return err
 		}
@@ -30,10 +30,11 @@ func compile(cfg *Config, path string) error {
 			Write:             true,
 			MinifyWhitespace:  true,
 			MinifyIdentifiers: true,
-			MinifySyntax:      true,
-			TreeShaking:       api.TreeShakingIgnoreAnnotations,
-			EntryPoints:       []string{filepath.Join(path, jscache, strings.TrimSuffix(cfg.Addonpy.EntryPoint, ".py")+".js")},
-			Outdir:            filepath.Join(cfg.Addonpy.OutputPath, path),
+			// this break js
+			// MinifySyntax:      true,
+			TreeShaking: api.TreeShakingIgnoreAnnotations,
+			EntryPoints: []string{filepath.Join(path, jscache, strings.TrimSuffix(cfg.Addonpy.EntryPoint, ".py")+".js")},
+			Outdir:      filepath.Join(cfg.Addonpy.OutputPath, path),
 		})
 		if len(r.Errors) > 0 {
 			err := errors.New(r.Errors[0].Text)

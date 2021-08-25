@@ -6,14 +6,11 @@ from addon.__eventbinding__ import __eventbinding__
 from addon.__systemevent__ import __systemevent__
 
 
-__js__ = window
-
-
 class registerSystem(__systemevent__, __eventbinding__, __entitybinding__, __componentbinding__, __entityquery__, slashcommand):
     def __init__(self, majorVersion: int, minorVersion: int):
-        self.__js__ = __js__.server.registerSystem(majorVersion, minorVersion)
+        self.__js__ = server.registerSystem(majorVersion, minorVersion)
 
 
 # https://bedrock.dev/docs/stable/Scripting#log(Message)
 def log(Message: str):
-    __js__.client.log(Message)
+    server.client.log(Message)

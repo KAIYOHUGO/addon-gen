@@ -23,16 +23,14 @@ func copyfolder(cfg *Config) error {
 		pc := filepath.Join(cfg.Addonpy.OutputPath, path)
 		{
 			ic, err := os.Stat(pc)
-			if err != nil {
-				return err
-			}
-			if ic.IsDir() == info.IsDir() && ic.Name() == info.Name() && ic.ModTime() == ic.ModTime() {
+			if err == nil && ic.IsDir() == info.IsDir() && ic.Name() == info.Name() && ic.ModTime() == ic.ModTime() {
 				return nil
 			}
 		}
 
 		if info.IsDir() {
-			return os.Mkdir(filepath.Join(cfg.Addonpy.OutputPath, path), 0777)
+			os.Mkdir(filepath.Join(cfg.Addonpy.OutputPath, path), 0777)
+			return nil
 		}
 
 		// copy file
@@ -41,10 +39,12 @@ func copyfolder(cfg *Config) error {
 			if err != nil {
 				return err
 			}
-			fc, err := os.Create(path)
+			defer fo.Close()
+			fc, err := os.Create(pc)
 			if err != nil {
 				return err
 			}
+			defer fc.Close()
 			if _, err := io.Copy(fc, fo); err != nil {
 				return err
 			}

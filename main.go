@@ -20,4 +20,12 @@ func main() {
 	if err := copyfolder(config); err != nil {
 		panic(err)
 	}
+
+	// compile py to js
+	if err := compile(config, "./scripts/server"); err != nil {
+		panic(err)
+	}
+	if err := compile(config, "./scripts/client"); err != nil {
+		panic(err)
+	}
 }

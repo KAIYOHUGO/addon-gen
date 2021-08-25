@@ -1,6 +1,8 @@
 dest
+dist
 __target__
 __pycache__
 __jscache__
 test.*
 *.test
+*.egg-info

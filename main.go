@@ -17,5 +17,7 @@ func main() {
 		json.NewDecoder(cf).Decode(config)
 		defaults.MustSet(config)
 	}
-
+	if err := copyfolder(config); err != nil {
+		panic(err)
+	}
 }

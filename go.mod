@@ -1,4 +1,4 @@
-module addon.py
+module addongen
 
 go 1.16
 

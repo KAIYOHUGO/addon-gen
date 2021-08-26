@@ -27,3 +27,7 @@ def helloworld():
 
 system.update(helloworld)
 ```
+
+## more infomation
+
+- [wiki](https://github.com/KAIYOHUGO/addon-gen/wiki)

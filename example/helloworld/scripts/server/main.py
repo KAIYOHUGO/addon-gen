@@ -1,4 +1,4 @@
-from addon import server, serverevent
+from addongen import server, serverevent
 
 system = server.registerSystem(0, 0)
 

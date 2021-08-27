@@ -21,7 +21,7 @@ func compile(cfg *Config, path string) error {
 	}
 	// run command
 	{
-		if o, err := exec.Command("transcrypt", "-n", "-od", jscache, "-p .none", p).Output(); err != nil {
+		if o, err := exec.Command("python3", "-m", "transcrypt", "-n", "-od", jscache, "-p .none", p).Output(); err != nil {
 			fmt.Println(string(o))
 			return err
 		}

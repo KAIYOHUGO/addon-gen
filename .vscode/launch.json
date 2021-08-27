@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}/.",
-            "cwd": "./worldedit_v0.0.2/worldedit"
+            "cwd": "./example/helloworld"
         }
     ]
 }

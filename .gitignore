@@ -6,4 +6,4 @@ __jscache__
 test.*
 *.test
 *.egg-info
-addongen*
+addongen-*

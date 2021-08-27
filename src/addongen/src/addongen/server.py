@@ -1,9 +1,9 @@
-from addon.__slashcommand__ import slashcommand
-from addon.__entityquery__ import __entityquery__
-from addon.__componentbinding__ import __componentbinding__
-from addon.__entitybinding__ import __entitybinding__
-from addon.__eventbinding__ import __eventbinding__
-from addon.__systemevent__ import __systemevent__
+from addongen.__slashcommand__ import slashcommand
+from addongen.__entityquery__ import __entityquery__
+from addongen.__componentbinding__ import __componentbinding__
+from addongen.__entitybinding__ import __entitybinding__
+from addongen.__eventbinding__ import __eventbinding__
+from addongen.__systemevent__ import __systemevent__
 
 
 class registerSystem(__systemevent__, __eventbinding__, __entitybinding__, __componentbinding__, __entityquery__, slashcommand):

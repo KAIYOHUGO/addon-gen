@@ -1,5 +1,5 @@
-from addon.__eventbinding__ import __eventbinding__
-from addon.__systemevent__ import __systemevent__
+from addongen.__eventbinding__ import __eventbinding__
+from addongen.__systemevent__ import __systemevent__
 
 
 class registerSystem(__systemevent__, __eventbinding__):
